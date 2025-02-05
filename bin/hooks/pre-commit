@@ -2,6 +2,8 @@
 
 files=$(git diff --cached --name-only --diff-filter=ACM -- '*.php');
 
-vendor/bin/pint --config vendor/code16/pint-config/pint.json "$files"
+if [ -n "$files" ]; then
+    vendor/bin/pint --config vendor/code16/pint-config/pint.json $files
+    git add $files
+fi
 
-git add "$files"
