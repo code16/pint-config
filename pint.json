@@ -3,16 +3,16 @@
   "rules": {
     "class_attributes_separation": {
       "elements": {
-        "const": "none",
-        "property": "none",
-        "trait_import": "none"
+        "method": "one"
       }
     },
     "single_trait_insert_per_statement": true,
     "new_with_parentheses": {
       "named_class": true,
-      "anonymous_class": true
+      "anonymous_class": false
     },
-    "php_unit_method_casing": false
+    "php_unit_method_casing": false,
+    "single_line_empty_body": false,
+    "not_operator_with_successor_space": false
   }
 }
