@@ -18,7 +18,7 @@ class InstallCommand extends Command
 
             if(! file_exists(base_path('pint.json'))) {
                 symlink(
-                    __DIR__ . '/../../pint.json',
+                    'vendor/code16/pint-config/pint.json',
                     base_path('pint.json')
                 );
             }
