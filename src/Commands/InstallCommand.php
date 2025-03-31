@@ -13,13 +13,17 @@ class InstallCommand extends Command
 
     public function handle(): int
     {
-        if(app()->environment('local')) {
+        if (app()->environment('local')) {
             $this->info('Installing git hooks...');
 
-            if(! file_exists(base_path('pint.json'))) {
+            $pintJsonPath = str_ends_with(base_path(), 'testbench-core/laravel')
+                ? base_path('../../../../pint.json')
+                : base_path('pint.json');
+
+            if (!file_exists($pintJsonPath)) {
                 symlink(
                     'vendor/code16/pint-config/pint.json',
-                    base_path('pint.json')
+                    $pintJsonPath
                 );
             }
 
