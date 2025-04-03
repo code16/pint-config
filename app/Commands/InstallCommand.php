@@ -1,13 +1,13 @@
 <?php
 
-namespace Code16\PintConfig\Commands;
+namespace App\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Process;
 
 class InstallCommand extends Command
 {
-    public $signature = 'pint-config:install';
+    public $signature = 'install';
 
     public $description = 'Install git hooks';
 

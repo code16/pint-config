@@ -1,19 +1,19 @@
 <?php
 
-namespace Code16\PintConfig\Commands;
+namespace App\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Process;
 
 class UninstallCommand extends Command
 {
-    public $signature = 'pint-config:uninstall';
+    public $signature = 'uninstall';
 
     public $description = 'Uninstall git hooks';
 
     public function handle(): int
     {
-        Process::run('git config --unset core.hooksPath');
+        Process::run('git config --unset core.hooksPath')->throw();
 
         return self::SUCCESS;
     }

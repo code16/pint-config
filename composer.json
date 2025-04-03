@@ -1,6 +1,6 @@
 {
     "name": "code16/pint-config",
-    "description": "This is my package pint-config",
+    "description": "Laravel pint config for Code16 projects.",
     "keywords": [
         "laravel",
         "pint-config"
@@ -15,36 +15,37 @@
         }
     ],
     "require": {
-        "php": "^8.4",
+        "php": "^8.2.0",
         "laravel/pint": "^1.20",
-        "illuminate/contracts": "^10.0|^11.0|^12.0"
+        "laravel-zero/framework": "^11.36.1"
     },
     "require-dev": {
-        "nunomaduro/collision": "^7.10|^8.1"
+        "mockery/mockery": "^1.6.12",
+        "pestphp/pest": "^3.7.1"
     },
     "autoload": {
         "psr-4": {
-            "Code16\\PintConfig\\": "src/"
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
         "psr-4": {
+            "Tests\\": "tests/"
         }
     },
     "config": {
+        "preferred-install": "dist",
         "sort-packages": true,
+        "optimize-autoloader": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true,
-            "phpstan/extension-installer": true
+            "pestphp/pest-plugin": true
         }
     },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Code16\\PintConfig\\PintConfigServiceProvider"
-            ]
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "bin": [
+        "pint-config"
+    ]
 }
