@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+
+
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\PhpSubprocess;
+
+
+require_once __DIR__.'/../../../autoload.php';
+
+$rootDir = __DIR__.'/../../../..';
+
+// \Dotenv\Dotenv::createImmutable($rootDir)->safeLoad();
+
+if(file_exists($rootDir.'/artisan')) {
+    $process = new PhpSubprocess([$rootDir.'/artisan', 'pint-config:install'])->setTty(true);
+    $process->run();
+} else if(file_exists($rootDir.'/vendor/bin/testbench')) {
+    $process = new Process([$rootDir.'/vendor/bin/testbench', 'pint-config:install'])->setTty(true);
+    $process->run();
+} else {
+    echo "Pint-config: No artisan or testbench found. Please run this command in a Laravel or Testbench project.\n";
+}
