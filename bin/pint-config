@@ -5,12 +5,9 @@
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\PhpSubprocess;
 
+require $_composer_autoload_path ?? __DIR__.'/../../../autoload.php';
 
-require_once __DIR__.'/../../../autoload.php';
-
-$rootDir = __DIR__.'/../../../..';
-
-// \Dotenv\Dotenv::createImmutable($rootDir)->safeLoad();
+$rootDir = isset($_composer_autoload_path) ? dirname($_composer_autoload_path).'/..' : __DIR__.'/../../../..';
 
 if(file_exists($rootDir.'/artisan')) {
     $process = new PhpSubprocess([$rootDir.'/artisan', 'pint-config:install']);
